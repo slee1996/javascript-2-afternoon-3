@@ -29,6 +29,10 @@
 
 // Code Here 
 
+function first(array, callback) {
+  callback(array[0])
+}
+
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 
@@ -49,6 +53,10 @@ first(names, function(firstName){
 
 //Code Here
 
+function last(array2, callback2) {
+  callback2(array2[array2.length - 1])
+}
+
 // Do not edit the code below.
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -66,6 +74,10 @@ last(names, function(lastName){
 */
 
 //Code Here
+
+function multiply(num1, num2, callback) {
+  callback(num1 * num2)
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +97,14 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+
+function contains(array, name, callback) {
+  if(array.includes(name)) {
+    callback(true) 
+  } else if(!array.includes(name)) {
+    callback(false)
+  }
+}
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -107,6 +127,17 @@ contains(names, 'Colt', function(result){
 
 //Code Here
 
+function uniq(array, callback) {
+  for(i = 0; i <= array.length; i++) {
+    for(j = i + 1; j <= array.length; j++) {
+      if(array[i] === array[j]) {
+          array.splice(j, 1)
+      }
+    }
+  }
+  callback(array)
+}
+
 // Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -124,6 +155,15 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 
+function each(nameArray, callback) {
+  let nameArrayName = nameArray[i]
+  let nameArrayIndex = nameArray.indexOf([i])
+
+  for(i = 0; i < nameArray.length; i++){
+    callback(nameArrayName, nameArrayIndex)
+  }
+}
+
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -140,6 +180,14 @@ each(names, function(item, indice){
 */
 
 // Code here
+
+function getUserById(users, id, callback){
+  for(i = 0; i < users.length; i++) {
+    if(id === users[i].id) {
+      callback(users[i])
+    }
+  }
+}
 
 // Do not edit the code below.
 var users = [
